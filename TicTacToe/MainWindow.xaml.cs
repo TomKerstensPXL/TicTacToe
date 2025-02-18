@@ -135,8 +135,7 @@ namespace TicTacToe
                 button.Content = "";// Reset button content to empty
                 button.Background = new SolidColorBrush(Colors.White);// Reset background to white
                 button.IsEnabled = true;
-                currentPlayerLabel.Content = "Current player: " + namePlayer1 + " (X)";
-                turnCounterLabel.Content = "Turn: 0";
+                
             }
             if (currentPlayer == xPlayer)
             {
