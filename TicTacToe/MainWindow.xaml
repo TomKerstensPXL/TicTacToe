@@ -14,13 +14,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <!-- Header -->
+        <!-- Header (Current Player Info) -->
         <StackPanel Grid.Row="0" VerticalAlignment="Top" Margin="20">
-            <Label Name="currentPlayerLabel" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Label Name="currentPlayerLabel" FontSize="20" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <!-- Tic-Tac-Toe Board -->
@@ -36,11 +32,22 @@
             <Button Name="gameButton9" Click="Button_Click" FontSize="24" Background="White" Margin="3"/>
         </UniformGrid>
 
+        <!-- Score Section -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="450,80,0,0" Orientation="Vertical">
+            <Label Content="Score" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
+                <Label Name="playerxLabel" Content="Player X" FontSize="14" FontWeight="Bold" Margin="5"/>
+                <Label Name="playeryLabel" Content="Player O" FontSize="14" FontWeight="Bold" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Name="playerXScoreTextBox" Width="50" Height="40" Text="0" FontSize="16" FontWeight="Bold" TextAlignment="Center" Background="#FFF8DC"/>
+                <TextBox Name="playerYScoreTextBox" Width="50" Height="40" Text="0" FontSize="16" FontWeight="Bold" TextAlignment="Center" Background="#F0FFF0" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
 
-        <!-- Footer -->
+        <!-- Footer (Turn Counter) -->
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label FontSize="16" FontWeight="Bold"/>
-            <Label Name="turnCounterLabel" FontSize="16" FontWeight="Bold"/>
+            <Label Name="turnCounterLabel" FontSize="16" FontWeight="Bold" Foreground="#555"/>
         </StackPanel>
     </Grid>
 </Window>
