@@ -35,9 +35,9 @@
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="20" HorizontalAlignment="Center">
             <Button Name="readyButton" Content="Start Game" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#4CAF50" Foreground="White" Click="readyButton_Click"/>
         </StackPanel>
-        <RadioButton Content="Single player" HorizontalAlignment="Left" Margin="466,119,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
-        <RadioButton Name="easyRadio" Content="Eazy" HorizontalAlignment="Left" Margin="159,147,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
-        <RadioButton Name="mediumRadio" Content="Medium" HorizontalAlignment="Left" Margin="258,150,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
-        <RadioButton Name="hardRadio" Content="Hard" HorizontalAlignment="Left" Margin="361,147,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
+        <RadioButton Name="singlePlayerRadioButton" Content="Single player" GroupName="singlePlayer" HorizontalAlignment="Left" Margin="466,119,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+        <RadioButton Name="easyRadio" GroupName="Difficulty" Content="Eazy" HorizontalAlignment="Left" Margin="159,147,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden" />
+        <RadioButton Name="mediumRadio" GroupName="Difficulty" Content="Medium" HorizontalAlignment="Left" Margin="258,150,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
+        <RadioButton Name="hardRadio" GroupName="Difficulty" Content="Hard" HorizontalAlignment="Left" Margin="361,147,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
     </Grid>
 </Window>

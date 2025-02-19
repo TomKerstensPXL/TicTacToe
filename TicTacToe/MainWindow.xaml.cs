@@ -18,9 +18,15 @@ namespace TicTacToe
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int clicks = 0; // Counter for the number of clicks (turns)
+        public bool isSinglePlayer = false;
         public string namePlayer1 = "player 1"; // Store the name of player 1
         public string namePlayer2 = "player 2"; // Store the name of player 2
+        public bool easyDifficulty = false;
+        public bool mediumDifficulty = false;
+        public bool hardDifficulty = false;
+
+
+        private int clicks = 0; // Counter for the number of clicks (turns)
         private const string xPlayer = "X"; // Represents Player 1's symbol
         private const string yPlayer = "O"; // Represents Player 2's symbol
         private string currentPlayer;
@@ -28,8 +34,7 @@ namespace TicTacToe
         private Button[,] board; // 2D array to represent the Tic-Tac-Toe board
         private int pointXPlzyer;
         private int pointYPlzyer;
-        private bool isSinglePlayer = false;
-        private OpeningPage opening = new OpeningPage();
+        private OpeningPage opening = new();
         
 
         public MainWindow()
@@ -49,53 +54,57 @@ namespace TicTacToe
             };
         }
 
-             private void Button_Click(object sender, RoutedEventArgs e)
+            private void Button_Click(object sender, RoutedEventArgs e)
             {
-            Button clickedButton = (Button)sender; // Cast the sender to a Button so we can manipulate it
+                Button clickedButton = (Button)sender; // Cast the sender to a Button so we can manipulate it
 
-            if (!string.IsNullOrEmpty(clickedButton.Content?.ToString())) return; // If the button has already been clicked, exit
+                if (!string.IsNullOrEmpty(clickedButton.Content?.ToString())) return; // If the button has already been clicked, exit
 
-            currentPlayer = (clicks % 2 == 0) ? xPlayer : yPlayer; // Determine current player based on clicks (even: X, odd: O)
+                currentPlayer = (clicks % 2 == 0) ? xPlayer : yPlayer; // Determine current player based on clicks (even: X, odd: O)
 
-            clickedButton.Background = new SolidColorBrush(Colors.LightGray); // Change the background color to LightGray
+                clickedButton.Background = new SolidColorBrush(Colors.LightGray); // Change the background color to LightGray
 
-            clickedButton.Content = currentPlayer; // Set the content of the button to the current player's symbol
+                clickedButton.Content = currentPlayer; // Set the content of the button to the current player's symbol
 
 
-            if (CheckWin(currentPlayer)) // Check if the current player has won
-            {
-                if (MessageBox.Show($"{(currentPlayer == "X" ? namePlayer1 : namePlayer2)} wins!\nPlay Again?", "Game over", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (CheckWin(currentPlayer)) // Check if the current player has won
                 {
-                    PlayAgain(); // restarts the game and adding a point to the winner
+                    if (MessageBox.Show($"{(currentPlayer == xPlayer ? namePlayer1 : namePlayer2)} wins!\nPlay Again?", "Game over", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        PlayAgain(); // restarts the game and adding a point to the winner
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thanks for playing!");
+                        this.Close(); // Closes the programmen after the pop up box
+                        opening.Close();
+                    }
                 }
-                else
+                clicks++; // Increment the click counter
+                if (clicks == 9) // If all cells are filled, it's a tie
                 {
-                    MessageBox.Show("Thanks for playing!");
-                    this.Close(); // Closes the programmen after the pop up box
-                    opening.Close();
-                }
-            }
-            clicks++; // Increment the click counter
-            if (clicks == 9) // If all cells are filled, it's a tie
-            {
-                MessageBox.Show("It's a tie!", "Tie");
-                if (MessageBox.Show("Play Again?", "Restart", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                {
-                    PlayAgain();
-                }
-                else
-                {
+                    MessageBox.Show("It's a tie!", "Tie");
+                    if (MessageBox.Show("Play Again?", "Restart", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        PlayAgain();
+                    }
+                    else
+                    {
 
-                    MessageBox.Show("Thanks for playing!");
-                    this.Close(); // Closes the programmen after the pop up box
-                    opening.Close();
+                        MessageBox.Show("Thanks for playing!");
+                        this.Close(); // Closes the programmen after the pop up box
+                        opening.Close();
+                    }
+                    return;
                 }
-                return;
-            }
 
-            currentPlayerLabel.Content = $"Current player: {(currentPlayer == "O" ? namePlayer1 + " (X)" : namePlayer2 + " (O)")}"; // Update the label for the next player
+                currentPlayerLabel.Content = $"Current player: {(currentPlayer == "O" ? namePlayer1 + " (X)" : namePlayer2 + " (O)")}"; // Update the label for the next player
             
-            turnCounterLabel.Content = $"Turn: {clicks}"; // Update the turn counter
+                turnCounterLabel.Content = $"Turn: {clicks}"; // Update the turn counter
+                if (isSinglePlayer)
+                {
+                    cpuPlayer();
+                }
             }
 
         private bool CheckWin(string player)
@@ -132,6 +141,93 @@ namespace TicTacToe
 
             return false; // If no winning combination is found, return false
         }
+        private void cpuPlayer()
+        {
+            if (easyDifficulty == true)
+            {
+                Random rand = new Random();
+                List<Button> emptyButtons = new List<Button>();
+
+                // Find empty spots
+                foreach (var button in board)
+                {
+                    if (string.IsNullOrEmpty(button.Content?.ToString()))
+                    {
+                        emptyButtons.Add(button);
+                    }
+                }
+
+                if (emptyButtons.Count > 0)
+                {
+                    Button aiMove = emptyButtons[rand.Next(emptyButtons.Count)]; // Pick a random empty button
+                    aiMove.Content = yPlayer;
+                    aiMove.Background = new SolidColorBrush(Colors.LightGray);
+                    clicks++;
+
+                    if (CheckWin(yPlayer))
+                    {
+                        MessageBox.Show("AI wins!", "Game Over");
+                        PlayAgain();
+                        return;
+                    }
+
+                    if (clicks == 9)
+                    {
+                        MessageBox.Show("It's a tie!", "Tie");
+                        PlayAgain();
+                        return;
+                    }
+
+                    currentPlayer = xPlayer;  // Switch back to human player
+                    currentPlayerLabel.Content = $"Current player: {namePlayer1} (X)";
+                }
+            }
+            else if (mediumDifficulty == true)
+            {
+                foreach (var button in board)
+                {
+                    if (string.IsNullOrEmpty(button.Content?.ToString()))
+                    {
+                        button.Content = yPlayer;
+                        if (CheckWin(yPlayer))
+                        {
+                            MessageBox.Show("CPU wins!", "Game Over");
+                            PlayAgain();
+                            return;
+                        }
+                        button.Content = ""; // Undo move
+                    }
+                }
+
+                // Try to block player's winning move
+                foreach (var button in board)
+                {
+                    if (string.IsNullOrEmpty(button.Content?.ToString()))
+                    {
+                        button.Content = xPlayer;
+                        if (CheckWin(xPlayer))
+                        {
+                            button.Content = yPlayer;
+                            break;
+                        }
+                        button.Content = ""; // Undo move
+                    }
+                }
+
+                // Otherwise, make a random move
+                Random rand = new Random();
+                List<Button> emptyButtons = board.Cast<Button>().Where(b => string.IsNullOrEmpty(b.Content?.ToString())).ToList();
+
+                if (emptyButtons.Count > 0)
+                {
+                    Button aiMove = emptyButtons[rand.Next(emptyButtons.Count)];
+                    aiMove.Content = yPlayer;
+                    aiMove.Background = new SolidColorBrush(Colors.LightGray);
+                }
+
+            } 
+        }
+
 
         private void PlayAgain()
         {
