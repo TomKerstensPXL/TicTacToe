@@ -26,7 +26,7 @@
                 <TextBox Name="nameXPlayerBox" Width="200" Height="30" FontSize="14" Background="White"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Player O: " FontSize="16" FontWeight="Bold"/>
+                <Label Name="nameYPlayerLabel" Content="Player O: " FontSize="16" FontWeight="Bold"/>
                 <TextBox Name="nameYPlayerBox" Width="200" Height="30" FontSize="14" Background="White"/>
             </StackPanel>
         </StackPanel>
@@ -35,5 +35,9 @@
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="20" HorizontalAlignment="Center">
             <Button Name="readyButton" Content="Start Game" Width="150" Height="40" FontSize="16" FontWeight="Bold" Background="#4CAF50" Foreground="White" Click="readyButton_Click"/>
         </StackPanel>
+        <RadioButton Name="singlePlayerRadioButton" Content="Single player" GroupName="singlePlayer" HorizontalAlignment="Left" Margin="466,119,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+        <RadioButton Name="easyRadio" GroupName="Difficulty" Content="Eazy" HorizontalAlignment="Left" Margin="159,147,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden" />
+        <RadioButton Name="mediumRadio" GroupName="Difficulty" Content="Medium" HorizontalAlignment="Left" Margin="258,150,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
+        <RadioButton Name="hardRadio" GroupName="Difficulty" Content="Hard (Not Working)" HorizontalAlignment="Left" Margin="361,147,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
     </Grid>
 </Window>
