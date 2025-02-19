@@ -28,6 +28,7 @@ namespace TicTacToe
         private Button[,] board; // 2D array to represent the Tic-Tac-Toe board
         private int pointXPlzyer;
         private int pointYPlzyer;
+        private bool isSinglePlayer = false;
         private OpeningPage opening = new OpeningPage();
         
 
@@ -70,7 +71,8 @@ namespace TicTacToe
                 else
                 {
                     MessageBox.Show("Thanks for playing!");
-                    Close(); // Closes the programmen after the pop up box
+                    this.Close(); // Closes the programmen after the pop up box
+                    opening.Close();
                 }
             }
             clicks++; // Increment the click counter
@@ -85,7 +87,8 @@ namespace TicTacToe
                 {
 
                     MessageBox.Show("Thanks for playing!");
-                    Close();
+                    this.Close(); // Closes the programmen after the pop up box
+                    opening.Close();
                 }
                 return;
             }

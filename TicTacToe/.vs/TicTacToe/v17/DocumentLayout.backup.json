@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -51,26 +51,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TicTacToe.csproj",
-              "DocumentMoniker": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\TicTacToe.csproj",
-              "RelativeDocumentMoniker": "TicTacToe.csproj",
-              "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\TicTacToe.csproj",
-              "RelativeToolTip": "TicTacToe.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-17T18:44:01.866Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAYwCUAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAADwv4sAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-17T09:59:09.126Z",
               "EditorCaption": ""
@@ -83,9 +70,9 @@
               "RelativeDocumentMoniker": "OpeningPage.xaml.cs",
               "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\OpeningPage.xaml.cs",
               "RelativeToolTip": "OpeningPage.xaml.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAB8AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowB4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T13:23:49.252Z",
+              "WhenOpened": "2025-02-19T13:59:04.405Z",
               "EditorCaption": ""
             },
             {
@@ -97,7 +84,7 @@
               "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-19T13:28:54.148Z",
+              "WhenOpened": "2025-02-19T14:13:11.926Z",
               "EditorCaption": ""
             },
             {
@@ -106,10 +93,23 @@
               "Title": "OpeningPage.xaml",
               "DocumentMoniker": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\OpeningPage.xaml",
               "RelativeDocumentMoniker": "OpeningPage.xaml",
-              "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\OpeningPage.xaml*",
-              "RelativeToolTip": "OpeningPage.xaml*",
+              "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\OpeningPage.xaml",
+              "RelativeToolTip": "OpeningPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-19T13:18:53.117Z",
+              "WhenOpened": "2025-02-19T13:56:53.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TicTacToe.csproj",
+              "DocumentMoniker": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\TicTacToe.csproj",
+              "RelativeDocumentMoniker": "TicTacToe.csproj",
+              "ToolTip": "C:\\Users\\12401787\\Documents\\CSharp\\Oefeningen\\My_Projects\\Git_My_Projects\\TicTacToe\\TicTacToe.csproj",
+              "RelativeToolTip": "TicTacToe.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-17T18:44:01.866Z",
               "EditorCaption": ""
             }
           ]

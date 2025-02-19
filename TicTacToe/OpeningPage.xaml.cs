@@ -32,7 +32,26 @@ namespace TicTacToe
             game.namePlayer1 = nameXPlayerBox.Text;
             game.namePlayer2 = nameYPlayerBox.Text;
             game.Show();
-            Close();
+            this.Close();
+            Application.Current.MainWindow = game;
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            nameYPlayerBox.Visibility = Visibility.Hidden;
+            nameYPlayerLabel.Visibility = Visibility.Hidden;
+            easyRadio.Visibility = Visibility.Visible;
+            hardRadio.Visibility = Visibility.Visible;
+            mediumRadio.Visibility = Visibility.Visible;
+        }
+
+        private void RadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            nameYPlayerBox.Visibility = Visibility.Visible;
+            nameYPlayerLabel.Visibility = Visibility.Visible;
+            easyRadio.Visibility = Visibility.Hidden;
+            hardRadio.Visibility = Visibility.Hidden;
+            mediumRadio.Visibility = Visibility.Hidden;
         }
     }
 }
