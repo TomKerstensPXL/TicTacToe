@@ -19,8 +19,8 @@ namespace TicTacToe
     public partial class MainWindow : Window
     {
         private int clicks = 0; // Counter for the number of clicks (turns)
-        private string namePlayer1 = "player 1"; // Store the name of player 1
-        private string namePlayer2 = "player 2"; // Store the name of player 2
+        public string namePlayer1 = "player 1"; // Store the name of player 1
+        public string namePlayer2 = "player 2"; // Store the name of player 2
         private const string xPlayer = "X"; // Represents Player 1's symbol
         private const string yPlayer = "O"; // Represents Player 2's symbol
         private string currentPlayer;
@@ -28,12 +28,14 @@ namespace TicTacToe
         private Button[,] board; // 2D array to represent the Tic-Tac-Toe board
         private int pointXPlzyer;
         private int pointYPlzyer;
+        private OpeningPage opening = new OpeningPage();
+        
 
         public MainWindow()
         {
             InitializeComponent(); // Initializes the components (UI elements)
             currentPlayer = xPlayer; // X always starts first
-            currentPlayerLabel.Content = "Starting player is: " + namePlayer1 + " (X)"; // Set the initial label for player 1
+            currentPlayerLabel.Content = "Press a box to start (X) Starts"; // Set the initial label for player 1
             turnCounterLabel.Content = $"Turn:  {clicks.ToString()}"; // Set the initial turn counter
             playerxLabel.Content = namePlayer1;
             playeryLabel.Content = namePlayer2;
@@ -61,7 +63,7 @@ namespace TicTacToe
 
             if (CheckWin(currentPlayer)) // Check if the current player has won
             {
-                if (MessageBox.Show($"Player {(currentPlayer == "X" ? namePlayer1 : namePlayer2)} wins!\nPlay Again?", "Game over", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"{(currentPlayer == "X" ? namePlayer1 : namePlayer2)} wins!\nPlay Again?", "Game over", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     PlayAgain(); // restarts the game and adding a point to the winner
                 }
